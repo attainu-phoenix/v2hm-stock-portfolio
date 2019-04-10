@@ -1,10 +1,6 @@
 /* Bordered form */
 form {
-    border: 15px solid black;
-    height: 600px; 
-    border-block-start-width: 70px;
-    border-bottom-left-radius: 150px;
-    border-block-start-color: darkolivegreen
+    margin-top: 100px;
   }
   
   
