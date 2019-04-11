@@ -5,7 +5,7 @@ var express = require("express");
 
 
 // Modules
-var signuppage = require("./routers/signup.js");
+var signuppage = require("./routes/signup.js");
 var loginpage = require("./routes/login.js");
 var homepage = require("./routes/homepage.js");
 var aboutus = require("./routes/aboutus.js");
@@ -17,6 +17,9 @@ var app = express();
 
 // Setting Handlebars Template Engine
 app.set("view engine", "hbs");
+
+// Static files
+app.use(express.static('public'))
 
 //Login Page Route
 app.get("/login", loginpage.loginPage);
