@@ -83,3 +83,53 @@ app.post("/virtualpage", function(request, response){
     });
 
 });
+
+
+// Signup
+app.get("/signup", function(request, response){
+    DB.collection("userDetails").find({}).toArray(function(error, userData){
+        if(error) {
+            response.send("Error fetching The Credintial");
+        } else {
+            var userData = {
+                userID: email,
+                password: password
+            };
+            response.render("signup.hbs", userData);
+        }
+    });
+});
+
+//  Sign in
+app.post("/login", function(request, response){
+    var userDetails = {
+         username = request.body.username,
+         password = request.password.password
+    }
+        for( var i = 0; i < userDetails.length; i++){
+    
+            if(userDetails[i].username == username && userDetails[i].password == password){
+    
+                response.render("virtualpage.hbs");
+            }
+        }
+        
+            response.send("Sorry Invalid Credintial");
+    });
+
+    // Insert the data in the DB.
+    DB.collection("userDetails").insertOne(userDetails, function(error, result) {
+
+        if(error) {
+            response.send("Error creating your profile");
+            return;
+        } else {
+            response.redirect("/login.hbs");
+        }
+
+        app.post("/login", function(request, respond){
+    
+            
+    });
+
+});
