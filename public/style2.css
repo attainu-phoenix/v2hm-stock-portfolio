@@ -1,6 +1,7 @@
+
 form{
 
-  margin-top: 100px;
+  margin-top: 30px;
 }
 /* Set a grey background color and center the text of the "sign in" section */
 .signin {
@@ -15,21 +16,23 @@ input[type=text], input[type=password] {
   border: 1px solid #ccc;
   box-sizing: border-box;
   align-content: center;
+  background-color: rgb(247, 234, 234);
 
 }
  /* Set a style for all buttons */
- button {
-  background-color: brown;
+ #formButton {
+
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 400px;;
+  height: 50px;
 }
 .container-fluid{
   text-align: center;
 }
 body{
-  background:rgb(250, 235, 235);
+  background:white;
 }

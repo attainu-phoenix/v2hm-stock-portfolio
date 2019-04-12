@@ -1,6 +1,8 @@
+
+
 /* Bordered form */
 form {
-    margin-top: 100px;
+    margin-top: 30px;
   }
   
   
@@ -15,8 +17,8 @@ form {
   }
   
   /* Set a style for all buttons */
-  button {
-    background-color: brown;
+ #formButton{
+   
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -76,5 +78,5 @@ form {
     }
   }
   body{
-      background:rgb(250, 235, 235);
+      background:white;
   }
