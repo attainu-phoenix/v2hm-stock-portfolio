@@ -9,7 +9,7 @@ exports.signupPage = signupPage;
 
 
 
-var userDB = [
+/* var userDB = [
 {username: "dpkshrivastava10@gmail.com", password: "dpkshrivastava"},
 { username: "mohdsammi", password: "sammi"},
 { username: "monish", password: "monish"}
@@ -23,4 +23,4 @@ app.post("/login", function(request, response){
 
     var username = request.body.username;
     var password = request.password.password;
-})
+}) */
