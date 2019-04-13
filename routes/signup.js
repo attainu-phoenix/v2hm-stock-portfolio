@@ -15,11 +15,11 @@ var userDB = [
 { username: "monish", password: "monish"}
 ];
 
-app.get("/signup", function(request, respond){
+app.get("/signup", function(request, response){
     response.render("signup.hbs");
 });
 
-app.post("/login", function(request, respond){
+app.post("/login", function(request, response){
 
     var username = request.body.username;
     var password = request.password.password;
