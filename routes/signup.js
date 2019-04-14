@@ -8,4 +8,3 @@ var signupPage = function(request, response){
 exports.signupPage = signupPage;
 
 
-
