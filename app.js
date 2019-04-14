@@ -45,35 +45,4 @@ app.get("/whystocks", whystocks.whyStocks);
 // Virtual Portfolio Page Route
 app.get("/virtualpage", vppage.vPPage);
 
-
-
-//signup credential
-
-var userDB = [
-    {username: "dpkshrivastava10@gmail.com", password: "dpkshrivastava"},
-    { username: "mohdsammi", password: "sammi"},
-    { username: "monish", password: "monish"}
-    ];
-    
-    app.get("/signup", function(request, respond){
-        response.render("signup.hbs");
-    });
-    
-    app.post("/login", function(request, respond){
-    
-        var username = request.body.username;
-        var password = request.password.password;
-    
-        for( var i = 0; i < userDB.length; i++){
-    
-            if(userDB[i].username == username && userDB[i].password == password){
-    
-                response.render("virtualpage.hbs");
-            }
-        }
-        
-            response.send("Sorry Invalid Credintial");
-        
-    });
-
 app.listen(3000);
