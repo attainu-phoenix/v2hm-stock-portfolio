@@ -45,6 +45,16 @@
 
     <div class="container-fluid">
         <div class="row">
+            <div class="offset-md-9 col-md-4">
+                
+                <button id="btn1" type="submit" class="btn btn-primary">Add To Portfolio</button>
+                <button id="btn2" type="submit" class="btn btn-primary">Add To Watchlist</button>
+                
+            </div>
+        </div>
+    
+    
+        <div class="row">
             <div class="offset-md-5 col-md-3">
                 <br>
                 <h5>Welcome User</h5>
@@ -83,33 +93,22 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Scripp Name</th>
+                            <th>Name</th>
                             <th>CMP</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each portfolio}}
                         <tr>
-                            <td>Reliance Instrustries Limited</td>
-                            <td>1331.00</td>
+                            <td>{{name}}</td>
+                            <!-- <td>{{CMP}}</td> -->
                         </tr>
-                        <tr>
-                            <td>Maruti Suziki India Ltd</td>
-                            <td>7175.45</td>
-                        </tr>
-                        <tr>
-                            <td>HDFC Bank Limited</td>
-                            <td>2236.90</td>
-                        </tr>
-                        <tr>
-                            <td>Bajaj Finance Limited</td>
-                            <td>2997.45</td>
-                        </tr>
-                        <tr>
-                            <td>Wipro Limited</td>
-                            <td>281.25</td>
-                        </tr>                                                                        
+                        {{/each}}
                     </tbody>
+                    
                 </table>
+
+                <button type="submit" class="btn btn-danger">Remove</button>
             </div>    
             <div class="col-md-3">
                 <br>
@@ -124,36 +123,22 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Scripp Name</th>
+                            <th>Name</th>
                             <th>CMP</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each watchlist}}
                         <tr>
-                            <td>Tata Motors</td>
-                            <td>215.80</td>
+                            <td>{{name}}</td>
+                            <!-- <td>{{CMP}}</td> -->
                         </tr>
-                        <tr>
-                            <td>Cipla Ltd</td>
-                            <td>546.45</td>
-                        </tr>
-                        <tr>
-                            <td>Adani Ports</td>
-                            <td>385.00</td>
-                        </tr>
-                        <tr>
-                            <td>Hindustan Uniliver Ltd</td>
-                            <td>1699.00</td>
-                        </tr>
-                        <tr>
-                            <td>BPCL</td>
-                            <td>359.00</td>
-                        </tr>                                                                        
+                        {{/each}}
                     </tbody>
+                    
                 </table>
+                <button type="submit" class="btn btn-danger">Remove</button>
             </div>
-
-
 
         </div>
         <br>
