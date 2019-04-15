@@ -13,6 +13,7 @@ var homepage = require("./routes/homepage.js");
 var aboutus = require("./routes/aboutus.js");
 var whystocks = require("./routes/whystocks.js")
 var vppage = require("./routes/virtualpage.js")
+var vPortfolioSearch = require("./routes/virtualportfoliopost.js");
 
 var app = express();
 
@@ -59,7 +60,13 @@ app.get("/aboutus", aboutus.aboutUs);
 // Whystocks Page Route
 app.get("/whystocks", whystocks.whyStocks);
 
-// Virtual Portfolio Page Route
+// Virtual Portfolio Page GET Route
 app.get("/virtualpage", vppage.vPPage);
+
+// Virtual Portfolio Page POST route for Portfolio
+app.post("/virtualpage", vPortfolioSearch.postPortfolioRoute);
+
+// Virtual Watchlist Page POST route for Watchlist
+app.post("/virtualpage", vWatchlistSearch.postWatchlistRoute);
 
 app.listen(3000);
