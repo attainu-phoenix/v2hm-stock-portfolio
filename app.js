@@ -2,6 +2,7 @@
 
 // npm packages
 var express = require("express");
+var mongodb = require("mongodb");
 
 
 // Modules
@@ -17,6 +18,9 @@ var app = express();
 
 // Setting Handlebars Template Engine
 app.set("view engine", "hbs");
+
+// bodyParser for form data
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // Static files
 app.use(express.static('public'))
