@@ -14,7 +14,6 @@ var whystocks = require("./routes/whystocks.js")
 var vppage = require("./routes/virtualpage.js")
 var vPortfolioSearch = require("./routes/virtualportfoliopost.js");
 var vWatchlistSearch = require("./routes/virtualwatchlistpost.js");
-var vPortfolioSearch = require("./routes/virtualportfoliopost.js");
 
 var app = express();
 
@@ -36,7 +35,7 @@ mongoClient.connect(function(err) {
     if(err) {
         console.log("Error connecting to MongoDB");
     } else {
-        console.log("Connection to MongoDB database blog established");
+        console.log("DB connection established");
         DB = mongoClient.db("marketdata");
         app.locals.DB = DB;
     }
