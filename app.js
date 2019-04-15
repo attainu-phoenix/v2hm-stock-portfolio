@@ -5,7 +5,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 
-
 // Modules
 var signuppage = require("./routes/signup.js");
 var loginpage = require("./routes/login.js");
@@ -13,6 +12,8 @@ var homepage = require("./routes/homepage.js");
 var aboutus = require("./routes/aboutus.js");
 var whystocks = require("./routes/whystocks.js")
 var vppage = require("./routes/virtualpage.js")
+var vPortfolioSearch = require("./routes/virtualportfoliopost.js");
+var vWatchlistSearch = require("./routes/virtualwatchlistpost.js");
 var vPortfolioSearch = require("./routes/virtualportfoliopost.js");
 
 var app = express();
