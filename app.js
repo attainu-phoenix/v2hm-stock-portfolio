@@ -21,16 +21,28 @@ app.set("view engine", "hbs");
 // Static files
 app.use(express.static('public'))
 
+
+var DB;
+
+var mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/marketdata', {useNewUrlParser: true});
+mongoClient.connect(function(err) {
+    if(err) {
+        console.log("Error connecting to MongoDB");
+    } else {
+        console.log("Connection to MongoDB database blog established");
+        DB = mongoClient.db("marketdata");
+        app.locals.DB = DB;
+    }
+    
+});
+
+
 //Login Page Route
 app.get("/login", loginpage.loginPage);
 
 
 //Sign up page Route
-
 app.get("/signup", signuppage.signupPage);
-
-
-
 
 // Home Page Route
 app.get("/", homepage.homePage);
