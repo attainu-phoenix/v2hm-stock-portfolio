@@ -17,11 +17,7 @@ var postPortfolioRoute = function(request, response) {
             console.log("Error adding scripp to portfolio collection");
         }
 
-        var data = {
-            portfolio: portfolio
-        }
-
-        response.render("virtualpage.hbs", data);
+        response.redirect("/virtualpage");
     })
 
 }
