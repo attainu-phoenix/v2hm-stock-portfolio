@@ -21,7 +21,7 @@ var vPPage = function(request, response) {
         };
         
         response.render("virtualpage.hbs", data);
-        return;
+        
     })
 
 
@@ -37,7 +37,7 @@ var vPPage = function(request, response) {
         };
        
         response.render("virtualpage.hbs", data1);
-        return;
+        
     })
 }
 
