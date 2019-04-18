@@ -40,7 +40,7 @@
             </div>
           </nav>
 
-  <form action="/action_page.php">
+  <form action="/signup" method="POST">
     <div class="container-fluid">
     <input type="image" src="ggl.png" alt="Submit" width="48" height="48"> 
     <p></p>
@@ -49,7 +49,16 @@
     <br>
     <h4>Or</h4>
     <br>
-    <input type="text" placeholder="Enter a valid Email-id" width="48">
+    <input type="text" placeholder="Enter Your Name" width="48" name="name">
+    <br>
+    <br>
+    <input type="email" placeholder="Enter a valid Email-id" width="48">
+    <br>
+    <br>
+    <input type="password" placeholder="Create Password" width="48" name="password">
+    <br>
+    <br>
+    <input type="password" placeholder="Confirm Password" width="48" name="confirmPassword">
     <br>
     <br>
     <button id="formButton" class="btn btn-success">Sign UP</button>
