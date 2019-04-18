@@ -36,16 +36,16 @@
             </div>
           </nav>
 
-        <form action="action_page.php" class="border">
+        <form action="/login" method="POST" class="border">
                 <div class="imgcontainer">
                   <img src="sign_in.png" alt="Avatar" class="avatar">
                 </div>
                 <div class="container">
                   <label for="uname"><b>Email-ID </b></label>
-                  <input type="text" placeholder="Enter Your Email-ID" name="uname" required>
+                  <input type="email" placeholder="Enter Your Email-ID" name="email" required>
               
                   <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" required>
+                  <input type="password" placeholder="Enter Password" name="password" required>
               
                   <button id="formButton" class="btn btn-success" type="submit">Login</button>
                   <label>

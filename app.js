@@ -4,6 +4,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
+var session = require("express-session");
 
 // Modules
 var signuppage = require("./routes/signup.js");
@@ -24,6 +25,9 @@ app.set("view engine", "hbs");
 
 // bodyParser for form data
 app.use(bodyParser.urlencoded({ extended: false }))
+
+// Session
+app.use(session({secret: "catkey"}));
 
 // Static files
 app.use(express.static('public'))
@@ -48,9 +52,58 @@ mongoClient.connect(function(err) {
 app.get("/login", loginpage.loginPage);
 
 
+app.post("/login", function(request, response){
+
+    var userData = {
+       
+        //userID: request.body.email,
+        password: request.body.password
+    };
+    DB.collection("userDetails").findOne(userData, function (err, user){
+        if(err){
+            response.send("DB Error");
+            return;
+        }
+        if(user){
+            request.session.user = user;
+        response.render("virtualpage.hbs");
+        
+        }
+        else{
+            response.send("invalid Username Password");
+        }
+    })
+    
+});
+
 //Sign up page Route
 app.get("/signup", signuppage.signupPage);
 
+app.post("/signup", function(request, response){
+    var username = request.body.userName;
+    var password = request.body.password;
+    var rePassword = request.body.confirmPassword;
+
+    var userAuthentication = {
+        userName: username,
+        password: password,
+        rePassword: rePassword
+};
+
+    DB.collection("userDetails").insertOne(userAuthentication, function(err, result){
+        if(err){
+           console.log("Error Signing Up");
+        }
+        response.redirect("/login");
+    });
+});
+
+//logout
+
+app.get("/logout", function(request, response){
+    request.session.user = null;
+    response.render("/login")
+});
 // Home Page Route
 app.get("/", homepage.homePage);
 
