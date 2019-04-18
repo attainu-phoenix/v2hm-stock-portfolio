@@ -14,6 +14,7 @@ var aboutus = require("./routes/aboutus.js");
 var whystocks = require("./routes/whystocks.js")
 var vppage = require("./routes/virtualpage.js")
 var vPortfolioSearch = require("./routes/virtualportfoliopost.js");
+// var vwpage = require("./routes/virtualwatchlistpage.js")
 var vWatchlistSearch = require("./routes/virtualwatchlistpost.js");
 
 var app = express();
@@ -113,13 +114,22 @@ app.get("/aboutus", aboutus.aboutUs);
 // Whystocks Page Route
 app.get("/whystocks", whystocks.whyStocks);
 
-// Virtual Portfolio Page GET Route
+// Virtual Portfolio GET Route
 app.get("/virtualpage", vppage.vPPage);
 
 // Virtual Portfolio Page POST route for Portfolio
 app.post("/virtualpage", vPortfolioSearch.postPortfolioRoute);
 
-// Virtual Watchlist Page POST route for Watchlist
-app.post("/virtualpage", vWatchlistSearch.postWatchlistRoute);
+// Watchlist GET Route
+// app.get("/virtualpage/watchlist", vwpage.vWatchlistPage);
+
+
+// Watchlist Page POST route
+app.post("/virtualpage/watchlist", vWatchlistSearch.postWatchlistRoute);
+
+// Portfolio Delete Route
+app.post("/delete/:mongoId", function(request, response){
+    response.json({"success": true});
+})
 
 app.listen(3000);

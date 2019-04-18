@@ -4,27 +4,25 @@ var postWatchlistRoute = function(request, response) {
 
     var DB = request.app.locals.DB;
 
-    var name = request.body.name;
+    var name1 = request.body.name1;
 
     var watchlist = {
-        name: name,
+        name1: name1,
         // CMP: CMP
     }
 
-    DB.collection("watchlist").insertOne(portfolio, function(error, result) {
+    DB.collection("watchlist").insertOne(watchlist, function(error, result) {
 
         if(error) {
-            console.log("Error adding scripp to portfolio collection");
+            console.log("Error adding scripp to Watchlist collection");
         }
 
-        var data1 = {
-            watchlist: watchlist
-        }
-
-        response.render("virtualpage.hbs", data1);
+        response.redirect("/virtualpage");
     })
 
 }
 
 exports.postWatchlistRoute = postWatchlistRoute;
+
+
 

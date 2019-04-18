@@ -1,0 +1,26 @@
+{
+  "name": "v2hm-stock-portfolio",
+  "version": "1.0.0",
+  "description": "Stock Portfolio App\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5D\u001b[1;5C\u001b[1;5C",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu-phoenix/v2hm-stock-portfolio.git"
+  },
+  "author": "Sami, Monish, Deepak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/attainu-phoenix/v2hm-stock-portfolio/issues"
+  },
+  "homepage": "https://github.com/attainu-phoenix/v2hm-stock-portfolio#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "hbs": "^4.0.4",
+    "mongodb": "^3.2.3",
+    "request": "^2.88.0"
+  }
+}

@@ -38,28 +38,36 @@
                   <a class="nav-link" href="/logout">Logout</a>
                 </li>
               </ul>
-             
+            <form class="form-inline my-2 my-lg-1">
+                <a href="https://google.com" target="_blank" class="btn btn-outline-success my-2 my-sm-0"role="button" aria-disabled="false">Use Google Search</a>
+              </form> 
             </div>
           </nav>
 
 
-    <div class="container-fluid">
         <div class="row">
-            <div class="offset-md-9 col-md-4">
+            <div class="offset-md-1 col-md-2">
                 <br>
-              <form class="form-inline my-2 my-lg-1" action="/virtualpage" method="POST">
-
-                <input name="name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-
-                <button id="btn1" type="submit" class="btn btn-primary">Add To Portfolio</button>
-                <button id="btn2" type="submit" class="btn btn-primary">Add To Watchlist</button>
-              </form>
-                
+                <strong><a target="blank" href="https://www.nseindia.com/products/content/equities/equities/eq_new_high_low.htm">52-Week High And Low</a></strong>                
             </div>
+            <div class="col-md-2">
+                <br>
+                <strong><a target="blank" href="https://www.nseindia.com/live_market/dynaContent/live_analysis/top_gainers_losers.htm">Top 10 Gainers And Losers</a></strong>                
+            </div>            
+            <div class="offset-md-1 col-md-2">
+                <br>
+                <strong><a target="blank" href="https://chartink.com/screener">Technical Scanners</a></strong>                
+            </div>
+            <div class="col-md-2">
+                <br>
+                <strong><a target="blank" href="https://www.moneyworks4me.com/stock-market/stock-screener">Fundamental Analysis</a></strong>                
+            </div>            
         </div>
-    
-    
+
+        <br>
+
+
+    <div class="container-fluid">
         <div class="row">
             <div class="offset-md-5 col-md-3">
                 <br>
@@ -67,32 +75,37 @@
                 <br>
             </div>
         </div>
-        <div class="row">
-            <div class="offset-md-1 col-md-2">
-                <br>
-                <strong>52-Week High</strong>                
-            </div>
-            <div class="col-md-2">
-                <br>
-                <strong>52-Week Low</strong>                
-            </div>            
-            <div class="col-md-2">
-                <br>
-                <strong>Top 10 Gainers</strong>                
-            </div>
-            <div class="col-md-2">
-                <br>
-                <strong>Top 10 Losers</strong>                
-            </div>            
-        </div>
-
-        <br>
-        <br>
-        <br>
 
         <div class="row">
             <div class="offset-md-1 col-md-3">
+                <br>
+                <form class="form-inline my-2 my-lg-1" action="/virtualpage" method="POST">
+                    <input name="name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
+                    <button id="btn1" type="submit" class="btn btn-primary">Add To Portfolio</button>
+                </form>
+
+            </div>
+            <div class="offset-md-4 col-md-3">
+                <br>
+                <form class="form-inline my-2 my-lg-1" action="/virtualpage/watchlist" method="POST">
+
+                    <input name="name1" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+                    <button id="btn2" type="submit" class="btn btn-primary">Add To Watchlist</button>
+                </form>
+
+            </div>
+        </div>
+    
+
+
+
+        <div class="row">
+            <div class="offset-md-1 col-md-3">
+                <br>
                 <strong>User Virtual Portfolio</strong>
                 <br>
                 <br>
@@ -114,7 +127,7 @@
                     
                 </table>
 
-                <button type="submit" class="btn btn-danger">Remove</button>
+                <button id="deletebtn" type="submit" class="btn btn-danger">Remove</button>
             </div>    
             <div class="col-md-3">
                 <br>
@@ -123,6 +136,8 @@
                 <img src="pie.jpg" width="250" height="250">        
             </div>
             <div class="offset-md-1 col-md-3">
+                <br>
+
                 <strong>Watchlist of Scripps</strong>
                 <br>
                 <br>
@@ -136,14 +151,14 @@
                     <tbody>
                         {{#each watchlist}}
                         <tr>
-                            <td>{{name}}</td>
+                            <td>{{name1}}</td>
                             <!-- <td>{{CMP}}</td> -->
                         </tr>
                         {{/each}}
                     </tbody>
                     
                 </table>
-                <button type="submit" class="btn btn-danger">Remove</button>
+                <button id="deletebtn1" type="submit" class="btn btn-danger">Remove</button>
             </div>
 
         </div>
@@ -158,6 +173,6 @@
 
     </div>
 
-
+    <script src="delete.js"></script>
 </body>
 </html>

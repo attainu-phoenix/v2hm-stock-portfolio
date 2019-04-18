@@ -8,6 +8,7 @@ var vPPage = function(request, response) {
     }
     var DB = request.app.locals.DB;
 
+    // Fetch the portfolio first
     DB.collection("portfolio").find({}).toArray(function(error, portfolio){
 
         if(error) {
@@ -20,8 +21,29 @@ var vPPage = function(request, response) {
         };
         
         response.render("virtualpage.hbs", data);
+<<<<<<< HEAD
     });
 
+=======
+        
+    })
+
+
+    // Fetch the watchlist
+    DB.collection("watchlist").find({}).toArray(function(error, watchlist){
+
+        if(error) {
+            console.log("Error connecting to Watchlist Collection");
+        }
+
+        var data1 = {
+            watchlist: watchlist
+        };
+       
+        response.render("virtualpage.hbs", data1);
+        
+    })
+>>>>>>> b710488f63b37da385c7da5510b29eabdd6c2f90
 }
 
 exports.vPPage = vPPage;
