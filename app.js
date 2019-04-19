@@ -26,7 +26,7 @@ app.set("view engine", "hbs");
 // bodyParser for form data
 app.use(bodyParser.urlencoded({ extended: false }))
 
-// Session
+// Settig Session
 app.use(session({secret: "catkey"}));
 
 // Static files
@@ -54,56 +54,57 @@ app.get("/login", loginpage.loginPage);
 
 app.post("/login", function(request, response){
 
-    var userData = {
-       
-        //userID: request.body.email,
+    var userID = {
+        email: request.body.email,
         password: request.body.password
     };
-    DB.collection("userDetails").findOne(userData, function (err, user){
-        if(err){
-            response.send("DB Error");
+
+    DB.collection("userDetails").findOne(userID, function(error, user){
+        if(error) {
+            response.send("DB error occurred");
+            return;
+        } 
+        if(!user){
+            response.send("invalid user and password");
             return;
         }
-        if(user){
-            request.session.user = user;
-        response.render("virtualpage.hbs");
-        
-        }
-        else{
-            response.send("invalid Username Password");
-        }
+        request.session.user = user;
+        response.redirect("/");
     })
-    
 });
 
 //Sign up page Route
 app.get("/signup", signuppage.signupPage);
 
 app.post("/signup", function(request, response){
-    var username = request.body.userName;
-    var password = request.body.password;
-    var rePassword = request.body.confirmPassword;
 
-    var userAuthentication = {
-        userName: username,
-        password: password,
-        rePassword: rePassword
-};
+    var userData = {
 
-    DB.collection("userDetails").insertOne(userAuthentication, function(err, result){
-        if(err){
-           console.log("Error Signing Up");
+        name: request.body.name,
+        email: request.body.email,
+        password: request.body.password,
+        confirmPassword: request.body.confirmPassword
+    }
+
+    DB.collection("userDetails").insertOne(userData, function(error){
+
+        if(error){
+            response.send("Error signing up");
+        } else {
+            response.redirect("/");
         }
-        response.redirect("/login");
+
     });
 });
 
 //logout
 
 app.get("/logout", function(request, response){
+
     request.session.user = null;
-    response.render("/login")
+    response.redirect("/login");
 });
+
 // Home Page Route
 app.get("/", homepage.homePage);
 

@@ -2,10 +2,11 @@
 
 var vPPage = function(request, response) {
 
-    if(!request.session.user){
-        response.send("Please Login to Continue");
-        response.redirect("/login.hbs");
+    if(!request.session.user) {
+        response.redirect("/login");
+        return;
     }
+
     var DB = request.app.locals.DB;
 
     // Fetch the portfolio first
@@ -19,23 +20,19 @@ var vPPage = function(request, response) {
             portfolio: portfolio,
             user: request.session.user
         };
+
+        // Fetch the watchlist
+        DB.collection("watchlist").find({}).toArray(function(error, watchlist){
+
+            if(error) {
+                console.log("Error connecting to Watchlist Collection");
+            }
+
+            data.watchlist = watchlist;
+  
+            response.render("virtualpage.hbs", data);
         
-        response.render("virtualpage.hbs", data);
-
-    });
-    // Fetch the watchlist
-    DB.collection("watchlist").find({}).toArray(function(error, watchlist){
-
-        if(error) {
-            console.log("Error connecting to Watchlist Collection");
-        }
-
-        var data1 = {
-            watchlist: watchlist
-        };
-       
-        response.render("virtualpage.hbs", data1);
-        
+        });
     });
 }
 
