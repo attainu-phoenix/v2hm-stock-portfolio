@@ -21,9 +21,8 @@ var vPPage = function(request, response) {
         };
         
         response.render("virtualpage.hbs", data);
+
     });
-
-
     // Fetch the watchlist
     DB.collection("watchlist").find({}).toArray(function(error, watchlist){
 
