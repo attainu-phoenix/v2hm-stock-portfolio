@@ -21,12 +21,7 @@ var vPPage = function(request, response) {
         };
         
         response.render("virtualpage.hbs", data);
-<<<<<<< HEAD
     });
-
-=======
-        
-    })
 
 
     // Fetch the watchlist
@@ -42,8 +37,7 @@ var vPPage = function(request, response) {
        
         response.render("virtualpage.hbs", data1);
         
-    })
->>>>>>> b710488f63b37da385c7da5510b29eabdd6c2f90
+    });
 }
 
 exports.vPPage = vPPage;
