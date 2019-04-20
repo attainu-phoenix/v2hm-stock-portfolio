@@ -24,5 +24,3 @@ var postWatchlistRoute = function(request, response) {
 
 exports.postWatchlistRoute = postWatchlistRoute;
 
-
-

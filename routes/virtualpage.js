@@ -27,11 +27,8 @@ var vPPage = function(request, response) {
             if(error) {
                 console.log("Error connecting to Watchlist Collection");
             }
-
             data.watchlist = watchlist;
-  
             response.render("virtualpage.hbs", data);
-        
         });
     });
 }

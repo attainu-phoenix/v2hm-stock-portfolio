@@ -26,7 +26,7 @@
                   <a class="nav-link" href="/whystocks">Why Stocks</a>
                 </li>
                 <li class="nav-item">
-                 
+                  <a class="nav-link" href="/virtualpage">Virtual Portfolio</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/login">Login</a>
@@ -34,16 +34,10 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/signup">Signup</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/logout">Logout</a>
-                </li>
               </ul>
-            <form class="form-inline my-2 my-lg-1">
-                <a href="https://google.com" target="_blank" class="btn btn-outline-success my-2 my-sm-0"role="button" aria-disabled="false">Use Google Search</a>
-              </form> 
+
             </div>
           </nav>
-
 
         <div class="row">
             <div class="offset-md-1 col-md-2">
@@ -71,7 +65,7 @@
         <div class="row">
             <div class="offset-md-5 col-md-3">
                 <br>
-                <h5>Welcome {{user.name}}</h5>
+                <h5>Welcome <strong>{{user.name}}</strong></h5>
                 <br>
             </div>
         </div>
@@ -121,7 +115,7 @@
                         <tr>
                             <td>
                                 <input type="checkbox" class="checkbox1" value="{{_id}}">
-                                
+                            
                                 {{name}}
                             </td>
                             <!-- <td>{{CMP}}</td> -->
@@ -131,9 +125,9 @@
                     
                 </table>
 
-                <button id="selectAll2" class="btn btn-info">Select All</button>
-                <button id="clearAll2" class="btn btn-info">Clear All</button>
-                <button id="deleteBtn2" type="submit" class="btn btn-danger">Remove</button>
+                <button id="selectAll1" class="btn btn-info">Select All</button>
+                <button id="clearAll1" class="btn btn-info">Clear All</button>
+                <button id="deleteBtn1" type="submit" class="btn btn-danger">Remove</button>
 
             </div>    
             <div class="col-md-3">
@@ -169,7 +163,11 @@
                     </tbody>
                     
                 </table>
-                <button id="deletebtn1" type="submit" class="btn btn-danger">Remove</button>
+             
+                <button id="selectAll2" class="btn btn-info">Select All</button>
+                <button id="clearAll2" class="btn btn-info">Clear All</button>
+                <button id="deleteBtn2" type="submit" class="btn btn-danger">Remove</button>
+
             </div>
 
         </div>
@@ -186,6 +184,6 @@
 
     <script src="delete_portfolio.js"></script>
     <script src="delete_watchlist.js"></script>
-    
+
 </body>
 </html>
