@@ -119,7 +119,11 @@
                     <tbody>
                         {{#each portfolio}}
                         <tr>
-                            <td>{{name}}</td>
+                            <td>
+                                <input type="checkbox" class="checkbox1" value="{{_id}}">
+                                
+                                {{name}}
+                            </td>
                             <!-- <td>{{CMP}}</td> -->
                         </tr>
                         {{/each}}
@@ -127,7 +131,10 @@
                     
                 </table>
 
-                <button id="deletebtn" type="submit" class="btn btn-danger">Remove</button>
+                <button id="selectAll2" class="btn btn-info">Select All</button>
+                <button id="clearAll2" class="btn btn-info">Clear All</button>
+                <button id="deleteBtn2" type="submit" class="btn btn-danger">Remove</button>
+
             </div>    
             <div class="col-md-3">
                 <br>
@@ -151,7 +158,11 @@
                     <tbody>
                         {{#each watchlist}}
                         <tr>
-                            <td>{{name1}}</td>
+                            <td>
+                                <input type="checkbox" class="checkbox2" value="{{_id}}">
+                                
+                                {{name1}}
+                            </td>
                             <!-- <td>{{CMP}}</td> -->
                         </tr>
                         {{/each}}
@@ -173,6 +184,8 @@
 
     </div>
 
-    <script src="delete.js"></script>
+    <script src="delete_portfolio.js"></script>
+    <script src="delete_watchlist.js"></script>
+    
 </body>
 </html>

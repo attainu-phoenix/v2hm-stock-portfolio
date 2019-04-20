@@ -16,7 +16,6 @@ var aboutus = require("./routes/aboutus.js");
 var whystocks = require("./routes/whystocks.js")
 var vppage = require("./routes/virtualpage.js")
 var vPortfolioSearch = require("./routes/virtualportfoliopost.js");
-// var vwpage = require("./routes/virtualwatchlistpage.js")
 var vWatchlistSearch = require("./routes/virtualwatchlistpost.js");
 
 var app = express();
@@ -29,11 +28,12 @@ app.set("view engine", "hbs");
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-// Settig Session
-app.use(session({secret: "catkey"}));
-
 // Static files
 app.use(express.static('public'))
+
+// Setting express session
+app.use(session({secret: "catkey"}));
+
 
 
 var DB;
@@ -63,35 +63,6 @@ app.get("/signup", signuppage.signupPage);
 //Signup Post Route
 app.post("/signup", signuppost.signupPost);
 
-app.post("/signup", function(request, response){
-
-    var userData = {
-
-        name: request.body.name,
-        email: request.body.email,
-        password: request.body.password,
-        confirmPassword: request.body.confirmPassword
-    }
-
-    DB.collection("userDetails").insertOne(userData, function(error){
-
-        if(error){
-            response.send("Error signing up");
-        } else {
-            response.redirect("/");
-        }
-
-    });
-});
-
-//logout
-
-app.get("/logout", function(request, response){
-
-    request.session.user = null;
-    response.redirect("/login");
-});
-
 // Home Page Route
 app.get("/", homepage.homePage);
 
@@ -108,16 +79,58 @@ app.get("/virtualpage", vppage.vPPage);
 // Virtual Portfolio Page POST route for Portfolio
 app.post("/virtualpage", vPortfolioSearch.postPortfolioRoute);
 
-// Watchlist GET Route
-// app.get("/virtualpage/watchlist", vwpage.vWatchlistPage);
-
-
 // Watchlist Page POST route
 app.post("/virtualpage/watchlist", vWatchlistSearch.postWatchlistRoute);
 
-// Portfolio Delete Route
-app.post("/delete/:mongoId", function(request, response){
-    response.json({"success": true});
+// Delete Route for Portfolio
+app.delete("/delete-portfolio", function(request, response) {
+
+    var itemsToBeDeleted = request.body.itemsToBeDeleted;
+    console.log(itemsToBeDeleted);
+
+    var objectIds = [];
+    for(var i = 0; i < itemsToBeDeleted.length; i++) {
+        objectIds.push( mongodb.ObjectID(itemsToBeDeleted[i]) );
+    }
+
+    DB.collection("portfolio").deleteMany({_id: {$in: objectIds} }, function(error) {
+
+        if(error) {
+            response.send("error deleting items");
+        } else {
+            response.send("all is well");
+        }
+    });
+});
+
+
+// Delete Route for Watchlist
+app.delete("/delete-watchlist", function(request, response) {
+
+    // var DB = request.app.locals.DB;
+
+    var itemsToBeDeleted2= request.body.itemsToBeDeleted2;
+    console.log(itemsToBeDeleted2);
+
+    var objectIds = [];
+    for(var i = 0; i < itemsToBeDeleted2.length; i++) {
+        objectIds.push( mongodb.ObjectID(itemsToBeDeleted2[i]) );
+    }
+    DB.collection("watchlist").deleteMany({_id: {$in: objectIds} }, function(error) {
+
+        if(error) {
+            response.send("error deleting items");
+        } else {
+            response.send("all is well");
+        }
+    });
+});
+
+// Logout Route
+app.get("/logout", function(request, response){
+    
+    request.session.user = null;
+    response.redirect("/login");
 })
 
 app.listen(3000);
