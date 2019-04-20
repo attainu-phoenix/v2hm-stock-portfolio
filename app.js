@@ -8,7 +8,9 @@ var session = require("express-session");
 
 // Modules
 var signuppage = require("./routes/signup.js");
+var signuppost = require("./routes/signuppost.js");
 var loginpage = require("./routes/login.js");
+var loginpost = require("./routes/loginPost.js");
 var homepage = require("./routes/homepage.js");
 var aboutus = require("./routes/aboutus.js");
 var whystocks = require("./routes/whystocks.js")
@@ -25,6 +27,7 @@ app.set("view engine", "hbs");
 
 // bodyParser for form data
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 
 // Settig Session
 app.use(session({secret: "catkey"}));
@@ -51,30 +54,14 @@ mongoClient.connect(function(err) {
 //Login Page Route
 app.get("/login", loginpage.loginPage);
 
-
-app.post("/login", function(request, response){
-
-    var userID = {
-        email: request.body.email,
-        password: request.body.password
-    };
-
-    DB.collection("userDetails").findOne(userID, function(error, user){
-        if(error) {
-            response.send("DB error occurred");
-            return;
-        } 
-        if(!user){
-            response.send("invalid user and password");
-            return;
-        }
-        request.session.user = user;
-        response.redirect("/");
-    })
-});
+// Login Page Post Route
+app.post("/login", loginpost.loginPost);
 
 //Sign up page Route
 app.get("/signup", signuppage.signupPage);
+
+//Signup Post Route
+app.post("/signup", signuppost.signupPost);
 
 app.post("/signup", function(request, response){
 
