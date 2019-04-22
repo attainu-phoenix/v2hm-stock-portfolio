@@ -35,6 +35,10 @@
               </ul>
             </div>
           </nav>
+          <h6>To access virtual portfolio successful login is required</h6>
+          <h6>In case You are a first time user please <a href="/signup">Sign Up</a> first before proceeding to login</h6>
+          <h6>Please ensure that You enter correct Email-ID and Password otherwise incase of wrong email-id and/or password you will have to re-enter these details</h6>
+
 
         <form action="/login" method="POST" class="border">
                 <div class="imgcontainer">
@@ -48,11 +52,8 @@
                   <input type="password" placeholder="Enter Password" name="password" required>
               
                   <button id="formButton" class="btn btn-success" type="submit">Login</button>
-                  <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                  </label>
-                  <button id="formButton" class="btn btn-danger" type="button" class=" cancelbtn">Cancel</button>
-                  <span class="psw">Forgot <a href="#">password?</a></span>
+                <a <button id="formButton" class="btn btn-danger" type="button" class=" cancelbtn" href="/login" >Cancel</button></a>
+                  <span class="psw"><a href="#">Forgot password?</a></span>
                 </div>
               </form>
 </body>

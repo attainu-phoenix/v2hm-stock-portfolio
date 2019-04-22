@@ -2,24 +2,43 @@
 
 var signupPost = function(request, response) {
 
-    var DB = request.app.locals.DB;
 
-    var userData = {
+   var DB = request.app.locals.DB;
 
-        name: request.body.name,
-        email: request.body.email,
-        password: request.body.password,
-        confirmPassword: request.body.confirmPassword
+  var name = request.body.name;
+  var email = request.body.email;
+  var password = request.body.password;
+  var confirmPassword = request.body.confirmPassword;
+
+
+    if (password !== confirmPassword) {
+    response.redirect("back")
+    return
     }
 
+    DB.collection("userDetails").findOne({ email: email }, function(error, found) {
+        if (found) {
+            response.redirect("/login")
+            return
+        }
+
+    else {    var userData = {
+
+                   name: name,
+                   email: email,
+                   password: password,
+                   confirmPassword: confirmPassword
+                }
     DB.collection("userDetails").insertOne(userData, function(error){
 
-        if(error){
-            response.send("Error signing up");
-        } else {
+         if(error){
+            response.send("Error signing up please go back to the signup page by clicking on back button in your browser");
+         } else {
             response.redirect("/");
         }
     })
+}
+})
 }
 
 exports.signupPost = signupPost;

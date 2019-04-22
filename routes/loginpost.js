@@ -11,11 +11,11 @@ var loginPost = function(request, response) {
 
     DB.collection("userDetails").findOne(userID, function(error, user){
         if(error) {
-            response.send("DB error occurred");
+            response.send("DB error occurred please go back to login page by clicking on back button in Your browser");
             return;
         } 
         if(!user){
-            response.send("invalid user and password");
+            response.redirect("back");
             return;
         }
         request.session.user = user;
