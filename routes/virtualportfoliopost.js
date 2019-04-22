@@ -2,13 +2,15 @@
 
 var postPortfolioRoute = function(request, response) {
 
-    var DB = request.app.locals.DB;
+	// TODO: Check if user is logged in or not here.
 
+    var DB = request.app.locals.DB;
     var name = request.body.name;
 
     var portfolio = {
         name: name,
-        // CMP: CMP
+        CMP: 10.0,
+		user: request.session.user._id
     }
 
     DB.collection("portfolio").insertOne(portfolio, function(error, result) {

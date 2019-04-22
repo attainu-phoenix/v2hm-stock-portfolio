@@ -2,14 +2,16 @@
 
 var postWatchlistRoute = function(request, response) {
 
-    var DB = request.app.locals.DB;
+	// TODO: Check login
 
+    var DB = request.app.locals.DB;
     var name1 = request.body.name1;
 
     var watchlist = {
         name1: name1,
-        // CMP: CMP
-    }
+        CMP: 10.0,
+		user: request.session.user._id
+    };
 
     DB.collection("watchlist").insertOne(watchlist, function(error, result) {
 
