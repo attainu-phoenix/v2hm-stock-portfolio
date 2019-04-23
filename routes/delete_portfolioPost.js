@@ -2,7 +2,7 @@
 
 var delete_portfolio = function(request, response) {
 
-    // var DB = request.app.locals.DB;
+    var DB = request.app.locals.DB;
 
     var itemsToBeDeleted = request.body.itemsToBeDeleted;
     console.log(itemsToBeDeleted);
@@ -20,6 +20,7 @@ var delete_portfolio = function(request, response) {
             response.send("all is well");
         }
     });
+
 }
 
 exports.delete_portfolio = delete_portfolio;

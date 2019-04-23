@@ -101,7 +101,7 @@ app.delete("/delete-portfolio", function(request, response) {
             response.send("all is well");
         }
     });
-});
+})
 
 
 // Delete Route for Watchlist
