@@ -5,6 +5,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var session = require("express-session");
+var fs = require("fs");
+var csv = require("csv-parser");
 
 // Modules
 var signuppage = require("./routes/signup.js");
@@ -48,6 +50,26 @@ mongoClient.connect(function(err) {
         app.locals.DB = DB;
     }
     
+    var scripps = [];
+    fs.createReadStream("cm18APR2019bhav.csv")
+    .pipe(csv())
+    .on('data', (data) => scripps.push(data))
+    .on('end', () => {
+ 
+        console.log(scripps);
+    });
+ 
+    DB.collection("bhavcopy").insertMany(scripps, function(error, success){
+ 
+     if(error) {
+         console.log(error);
+         console.log("\nData not written");
+         return;
+     }
+     console.log("Bhavcopy Data inserted in DB");
+ })
+
+
 });
 
 
