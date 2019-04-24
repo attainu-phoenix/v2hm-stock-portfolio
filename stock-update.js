@@ -23,13 +23,15 @@ mongoClient.connect(function(err) {
         for(var i = 1; i < fileData.length - 1; i++) {
             var stockData = fileData[i].split(",");
             var name = stockData[0];
-            var prevClose = stockData[3];
+           
             var currentPrice = stockData[8];
+           
 
             sharePrices.push({
                 name: name,
-                prevClose: parseFloat(prevClose),
+                
                 currentPrice: parseFloat(currentPrice)
+                
             });
 
         }

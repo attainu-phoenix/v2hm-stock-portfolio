@@ -5,20 +5,19 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var session = require("express-session");
-var fs = require("fs");
-var csv = require("csv-parser");
 
 // Modules
 var signuppage = require("./routes/signup.js");
 var signuppost = require("./routes/signuppost.js");
 var loginpage = require("./routes/login.js");
-var loginpost = require("./routes/loginpost.js");
+var loginpost = require("./routes/loginPost.js");
 var homepage = require("./routes/homepage.js");
 var aboutus = require("./routes/aboutus.js");
 var whystocks = require("./routes/whystocks.js")
 var vppage = require("./routes/virtualpage.js")
 var vPortfolioSearch = require("./routes/virtualportfoliopost.js");
 var vWatchlistSearch = require("./routes/virtualwatchlistpost.js");
+var helppage = require("./routes/helppage.js")
 
 var app = express();
 
@@ -50,26 +49,6 @@ mongoClient.connect(function(err) {
         app.locals.DB = DB;
     }
     
-    var scripps = [];
-    fs.createReadStream("cm18APR2019bhav.csv")
-    .pipe(csv())
-    .on('data', (data) => scripps.push(data))
-    .on('end', () => {
- 
-        console.log(scripps);
-    });
- 
-    DB.collection("bhavcopy").insertMany(scripps, function(error, success){
- 
-     if(error) {
-         console.log(error);
-         console.log("\nData not written");
-         return;
-     }
-     console.log("Bhavcopy Data inserted in DB");
- })
-
-
 });
 
 
@@ -94,6 +73,9 @@ app.get("/aboutus", aboutus.aboutUs);
 
 // Whystocks Page Route
 app.get("/whystocks", whystocks.whyStocks);
+
+//Help Page Route
+app.get("/helppage", helppage.helppage);
 
 // Virtual Portfolio GET Route
 app.get("/virtualpage", vppage.vPPage);
@@ -123,7 +105,7 @@ app.delete("/delete-portfolio", function(request, response) {
             response.send("all is well");
         }
     });
-})
+});
 
 
 // Delete Route for Watchlist
