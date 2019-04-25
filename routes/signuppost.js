@@ -34,7 +34,7 @@ var signupPost = function(request, response) {
          if(error){
             response.send("Error signing up please go back to the signup page by clicking on back button in your browser");
          } else {
-            response.redirect("/");
+            response.redirect("/login");
         }
     })
 }
