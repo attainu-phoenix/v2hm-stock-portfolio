@@ -19,7 +19,7 @@ var loginPost = function(request, response) {
             return;
         }
         request.session.user = user;
-        response.redirect("/");
+        response.redirect("/virtualpage");
     })
 }
 
