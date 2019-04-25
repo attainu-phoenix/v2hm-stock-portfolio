@@ -39,7 +39,7 @@ app.use(session({secret: "catkey"}));
 
 var DB;
 
-var DB_URL = process.env.PORT || "mongodb://localhost:27017/marketdata";
+var DB_URL = process.env.DB_URL || "mongodb://localhost:27017/marketdata";
 
 var mongoClient = new mongodb.MongoClient(DB_URL, {useNewUrlParser: true});
 mongoClient.connect(function(err) {
