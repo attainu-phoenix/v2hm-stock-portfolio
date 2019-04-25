@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Portfolio Page</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="homepage.css">
@@ -29,7 +29,7 @@
                   <a class="nav-link" href="/virtualpage">Virtual Portfolio</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" target="blank" href="/helppage">Help</a>
+                  <a class="nav-link" target="blank" href="/helppage">Lookup For Symbols</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/login">Login</a>
@@ -45,27 +45,8 @@
             </div>
           </nav>
 
-        <div class="row">
-            <div class="offset-md-1 col-md-2">
-                <br>
-                <strong><a target="blank" href="https://www.nseindia.com/products/content/equities/equities/eq_new_high_low.htm">52-Week High And Low</a></strong>                
-            </div>
-            <div class="col-md-2">
-                <br>
-                <strong><a target="blank" href="https://www.nseindia.com/live_market/dynaContent/live_analysis/top_gainers_losers.htm">Top 10 Gainers And Losers</a></strong>                
-            </div>            
-            <div class="offset-md-1 col-md-2">
-                <br>
-                <strong><a target="blank" href="https://chartink.com/screener">Technical Scanners</a></strong>                
-            </div>
-            <div class="col-md-2">
-                <br>
-                <strong><a target="blank" href="https://www.moneyworks4me.com/stock-market/stock-screener">Fundamental Analysis</a></strong>                
-            </div>            
-        </div>
 
         <br>
-
 
     <div class="container-fluid">
         <div class="row">
@@ -102,7 +83,7 @@
 
 
         <div class="row">
-            <div class="offset-md-1 col-md-3">
+            <div class="offset-md-1 col-md-4">
                 <br>
                 <strong>User Virtual Portfolio</strong>
                 <br>
@@ -127,7 +108,9 @@
                             <td>
                               <a target="blank" href="https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol={{name}}"><h6>{{name}}</h6></a>
                             </td>
-                            <td>{{currentPrice}}</td>
+                            <td>   
+                              {{currentPrice}}
+                            </td>
                         </tr>
                         {{/each}}
                     </tbody>
@@ -139,13 +122,8 @@
                 <button id="deleteBtn1" type="submit" class="btn btn-danger">Remove</button>
 
             </div>    
-            <div class="col-md-3">
-                <br>
-                <br>
-                <br>
-                <img src="pie.jpg" width="250" height="250">        
-            </div>
-            <div class="offset-md-1 col-md-3">
+
+            <div class="offset-md-3 col-md-4">
                 <br>
 
                 <strong>Watchlist of Scripps</strong>

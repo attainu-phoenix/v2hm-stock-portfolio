@@ -9,7 +9,6 @@ var postWatchlistRoute = function(request, response) {
 
     var watchlist = {
         name1: name1,
-        CMP: 10.0,
 		user: request.session.user._id
     };
 
