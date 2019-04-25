@@ -9,9 +9,8 @@ var postPortfolioRoute = function(request, response) {
 
     var portfolio = {
         name: name,
-        CMP: 10.0,
 		user: request.session.user._id
-    }
+    };
 
     DB.collection("portfolio").insertOne(portfolio, function(error, result) {
 

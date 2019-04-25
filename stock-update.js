@@ -24,7 +24,7 @@ mongoClient.connect(function(err) {
             var stockData = fileData[i].split(",");
             var name = stockData[0];
            
-            var currentPrice = stockData[8];
+            var currentPrice = stockData[5];
            
 
             sharePrices.push({
