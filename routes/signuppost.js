@@ -12,13 +12,13 @@ var signupPost = function(request, response) {
 
 
     if (password !== confirmPassword) {
-    response.redirect("back")
+    response.redirect("/signup?Error:Password&Retyped-Password-are-Different")
     return
     }
 
     DB.collection("userDetails").findOne({ email: email }, function(error, found) {
         if (found) {
-            response.redirect("/login")
+            response.redirect("/login?You-are-a-registered-User-Please-Login-to-access-Virtual-Portfolio")
             return
         }
 
@@ -32,9 +32,9 @@ var signupPost = function(request, response) {
     DB.collection("userDetails").insertOne(userData, function(error){
 
          if(error){
-            response.send("Error signing up please go back to the signup page by clicking on back button in your browser");
+            response.redirect("/signup?Error:DATABASE-ERROR");
          } else {
-            response.redirect("/login");
+            response.redirect("/login?Signup-Sucessful-Please-Login-to-access-Virtual-Portfolio");
         }
     })
 }

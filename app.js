@@ -94,12 +94,12 @@ app.delete("/delete-portfolio", function(request, response) {
     var itemsToBeDeleted = request.body.itemsToBeDeleted;
     console.log(itemsToBeDeleted);
 
-    var objectIds = [];
+    var userStockNames = [];
     for(var i = 0; i < itemsToBeDeleted.length; i++) {
-        objectIds.push( mongodb.ObjectID(itemsToBeDeleted[i]) );
+        userStockNames.push( mongodb.ObjectID(itemsToBeDeleted[i]) );
     }
 
-    DB.collection("portfolio").deleteMany({_id: {$in: objectIds} }, function(error) {
+    DB.collection("portfolio").deleteMany({name: {$in: userStockNames} }, function(error) {
 
         if(error) {
             response.send("error deleting items");

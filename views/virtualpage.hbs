@@ -60,7 +60,7 @@
             <div class="offset-md-1 col-md-3">
                 <br>
                 <form class="form-inline my-2 my-lg-1" action="/virtualpage" method="POST">
-                <p>Please refer to<a target="blank" href="/helppage"> HELP </a> to get accurate symbol Names of the companies listed on NSE :</p>
+                <p>Please refer to<a target="blank" href="/helppage"> SYMBOLS </a> to get accurate symbol Names of the companies listed on NSE :</p>
                     <input name="name" class="form-control mr-sm-2" type="search" placeholder="Symbol Name" aria-label="Search">
 
                     <button id="btn1" type="submit" class="btn btn-primary">Add To Portfolio</button>
@@ -70,7 +70,7 @@
             <div class="offset-md-4 col-md-3">
                 <br>
                 <form class="form-inline my-2 my-lg-1" action="/virtualpage/watchlist" method="POST">
-                <p>Please refer to<a target="blank" href="/helppage"> HELP </a> to get accurate symbol Names of the companies listed on NSE :</p>
+                <p>Please refer to<a target="blank" href="/helppage"> SYMBOLS </a> to get accurate symbol Names of the companies listed on NSE :</p>
                     <input name="name1" class="form-control mr-sm-2" type="search" placeholder="Symbol Name" aria-label="Search">
 
                     <button id="btn2" type="submit" class="btn btn-primary">Add To Watchlist</button>
@@ -85,7 +85,7 @@
         <div class="row">
             <div class="offset-md-1 col-md-4">
                 <br>
-                <strong>{{user.name}} Virtual Portfolio</strong>
+                <strong>Your Virtual Portfolio</strong>
                 <br>
                 <br>
                 <table class="table table-striped">
@@ -106,7 +106,7 @@
                             </td>
 
                             <td>
-                              <a target="blank" href="https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol={{name}}"><h6>{{name}}</h6></a> 
+                              <a target="blank" href="https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol={{name}}"><h6>{{name}}</h6></a>
                             </td>
                             <td>   
                               {{currentPrice}}
@@ -126,7 +126,7 @@
             <div class="offset-md-3 col-md-4">
                 <br>
 
-                <strong>Watchlist of Scripps</strong>
+                <strong>Your Watchlist </strong>
                 <br>
                 <br>
                 <table class="table table-striped">
@@ -140,13 +140,13 @@
                         {{#each watchlist}}
                         <tr>
                             <td>
-                                <input type="checkbox" class="checkbox2" value="{{name}}">
+                                <input type="checkbox" class="checkbox2" value="{{_id}}">
                                 
                                 {{name1}}
                             </td>
                             <td>
                               <a target="blank" href="https://www.nseindia.com/live_market/dynaContent/live_watch/get_quote/GetQuote.jsp?symbol={{name1}}"><h6>{{name1}}</h6></a>
-                            </td> 
+                            </td>
                         </tr>
                         {{/each}}
                     </tbody>
