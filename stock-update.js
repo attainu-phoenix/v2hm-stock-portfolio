@@ -4,7 +4,11 @@
 var mongodb = require("mongodb");
 var fs = require("fs");
 
-var mongoClient = new mongodb.MongoClient('mongodb://localhost:27017/marketdata', {useNewUrlParser: true});
+var DB;
+
+var DB_URL = process.env.DB_URL || "mongodb://localhost:27017/marketdata";
+
+var mongoClient = new mongodb.MongoClient(DB_URL, {useNewUrlParser: true});
 mongoClient.connect(function(err) {
     if(err) {
         return console.log("Error connecting to MongoDB");
