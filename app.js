@@ -96,7 +96,7 @@ app.delete("/delete-portfolio", function(request, response) {
 
     var userStockNames = [];
     for(var i = 0; i < itemsToBeDeleted.length; i++) {
-        userStockNames.push( mongodb.ObjectID(itemsToBeDeleted[i]) );
+        userStockNames.push((itemsToBeDeleted[i]) );
     }
 
     DB.collection("portfolio").deleteMany({name: {$in: userStockNames} }, function(error) {
